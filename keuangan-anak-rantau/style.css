@@ -1,0 +1,277 @@
+/* ============================================================
+   SAKU RANTAU — Custom CSS
+   Tailwind handles most styling; ini hanya tambahan spesifik.
+   ============================================================ */
+
+/* --- Radio label active state fallback (untuk kompatibilitas) --- */
+label.radio-income.active  { border-color: #16a34a !important; background: #f0fdf4 !important; }
+label.radio-expense.active { border-color: #dc2626 !important; background: #fef2f2 !important; }
+.dark label.radio-income.active  { background: rgba(22,163,74,0.15) !important; }
+.dark label.radio-expense.active { background: rgba(220,38,38,0.15) !important; }
+
+/* --- Scrollbar kustom (Webkit) --- */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+.dark ::-webkit-scrollbar-thumb { background: #475569; }
+
+/* --- Smooth scroll --- */
+html { scroll-behavior: smooth; }
+
+/* --- Modal overlay --- */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 100;
+  background: rgba(0,0,0,0.45);
+  display: flex; align-items: center; justify-content: center;
+  padding: 1rem;
+  backdrop-filter: blur(2px);
+  animation: fadeIn 0.15s ease;
+}
+.modal-overlay.hidden { display: none !important; }
+
+.modal-box {
+  background: #fff;
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  width: 100%; max-width: 28rem;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  animation: slideUp 0.2s ease;
+}
+.dark .modal-box {
+  background: #1e293b;
+  color: #f1f5f9;
+}
+
+@keyframes fadeIn { from { opacity:0 } to { opacity:1 } }
+@keyframes slideUp { from { transform: translateY(20px); opacity:0 } to { transform: translateY(0); opacity:1 } }
+
+/* --- Card panel --- */
+.card-panel {
+  background: #fff;
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  border: 1px solid #f1f5f9;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  transition: box-shadow 0.2s;
+}
+.dark .card-panel {
+  background: #111827;
+  border-color: #1f2937;
+}
+.card-panel:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.09);
+}
+
+/* --- Card title --- */
+.card-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+.dark .card-title { color: #f1f5f9; }
+
+/* --- Summary card hover --- */
+.summary-card {
+  transition: transform 0.18s, box-shadow 0.18s;
+  cursor: default;
+}
+.summary-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+/* --- Input fields --- */
+.input-field {
+  width: 100%;
+  padding: 0.55rem 0.9rem;
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  color: #1f2937;
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.input-field:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
+}
+.dark .input-field {
+  background: #1e293b;
+  border-color: #374151;
+  color: #f1f5f9;
+}
+.dark .input-field:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
+}
+.input-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24'%3E%3Cpath fill='%236b7280' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.6rem center;
+  padding-right: 2rem;
+  cursor: pointer;
+}
+
+/* --- Label form --- */
+.label-form {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.35rem;
+}
+.dark .label-form { color: #9ca3af; }
+
+/* --- Modal close button --- */
+.modal-close {
+  width: 2rem; height: 2rem;
+  border-radius: 50%;
+  background: #f3f4f6;
+  color: #6b7280;
+  font-size: 0.85rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.15s;
+  cursor: pointer;
+}
+.modal-close:hover { background: #e5e7eb; }
+.dark .modal-close { background: #374151; color: #d1d5db; }
+.dark .modal-close:hover { background: #4b5563; }
+
+/* --- Chart containers --- */
+.chart-container {
+  position: relative;
+  height: 240px;
+}
+.chart-container-sq {
+  position: relative;
+  height: 220px;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+/* --- Empty state --- */
+.empty-state {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  color: #9ca3af;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+.dark .empty-state { color: #6b7280; }
+
+/* --- Progress bar track --- */
+.progress-track {
+  height: 10px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  overflow: hidden;
+}
+.dark .progress-track { background: #374151; }
+
+.progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* --- Transaction item --- */
+.tx-item {
+  display: flex; align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: 0.85rem;
+  border: 1px solid #f1f5f9;
+  transition: background 0.15s, transform 0.15s;
+  cursor: default;
+}
+.tx-item:hover {
+  background: #f8fafc;
+  transform: translateX(2px);
+}
+.dark .tx-item { border-color: #1f2937; }
+.dark .tx-item:hover { background: #1e293b; }
+
+.tx-icon {
+  width: 2.4rem; height: 2.4rem;
+  border-radius: 0.65rem;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+/* --- Toast notification --- */
+.toast {
+  position: fixed;
+  bottom: 1.5rem; right: 1.5rem;
+  z-index: 9999;
+  background: #1f2937;
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.85rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  animation: toastIn 0.25s ease;
+  max-width: 320px;
+}
+.toast.hidden { display: none; }
+.toast.success { background: #16a34a; }
+.toast.error   { background: #dc2626; }
+.toast.warning { background: #d97706; }
+@keyframes toastIn { from { opacity:0; transform:translateY(10px) } to { opacity:1; transform:translateY(0) } }
+
+/* --- Result box calculator --- */
+.result-box {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 0.85rem;
+  padding: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: #1e40af;
+}
+.dark .result-box { background: #1e3a5f; border-color: #2563eb; color: #93c5fd; }
+
+/* --- Remittance item --- */
+.remittance-item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.65rem 0.85rem;
+  border-radius: 0.75rem;
+  background: #fefce8;
+  border: 1px solid #fde68a;
+}
+.dark .remittance-item { background: #1a1a00; border-color: #713f12; }
+
+/* --- Top-5 bar item --- */
+.top5-item {
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.top5-bar-track {
+  flex: 1; height: 8px; border-radius: 999px; background: #fee2e2; overflow: hidden;
+}
+.dark .top5-bar-track { background: #3f1515; }
+.top5-bar-fill {
+  height: 100%; border-radius: 999px; background: #ef4444;
+  transition: width 0.5s ease;
+}
+
+/* --- Dark mode transitions --- */
+body, header, .card-panel, .modal-box, .tx-item, .summary-card {
+  transition: background-color 0.25s, border-color 0.25s, color 0.25s;
+}
+
+/* --- Responsive helpers --- */
+@media (max-width: 640px) {
+  .card-panel { padding: 1rem; }
+  .modal-box  { padding: 1.25rem; }
+  .chart-container { height: 200px; }
+  .chart-container-sq { height: 180px; }
+}
